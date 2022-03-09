@@ -1,0 +1,21 @@
+#include <SoftwareSerial.h>
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  float sensorValue = analogRead(A0);
+  float millivolt = (sensorValue/1023)*5;
+
+  Serial.print("Voltage: ");
+  Serial.print(millivolt*1000);
+  Serial.print("\n");
+  if(millivolt*1000>1650)
+  {
+    Serial.println(" Check ");
+  }
+  Serial.print("\n");
+  delay(1000);
+}
