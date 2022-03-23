@@ -32,7 +32,7 @@ void loop() {
   
   if (analogButton0 >= 500)
   {
-  	buttonState = HIGH;
+    buttonState = HIGH;
   }
   else if (analogButton0 < 500)
   {
@@ -41,7 +41,7 @@ void loop() {
   
   if (analogButton1 >= 500)
   {
-  	buttonState2 = HIGH;
+    buttonState2 = HIGH;
   }
   else if (analogButton1 < 500)
   {
@@ -68,7 +68,14 @@ void loop() {
       // if the current state is LOW then the button went from on to off:
     // Delay a little bit to avoid bouncing
         Serial.print("d");
-    }  
+    }
+    else if(buttonState == LOW && lastButtonState == HIGH) 
+    {
+      // if the current state is LOW then the button went from on to off:
+    // Delay a little bit to avoid bouncing
+        Serial.print("j");
+    }
+      
   }
   delay(100);
   // save the current state as the last state, for next time through the loop
