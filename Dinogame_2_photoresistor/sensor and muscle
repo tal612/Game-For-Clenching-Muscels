@@ -36,7 +36,7 @@ void loop() {
   {
     buttonState = HIGH;
   }
-  else if (miliVolt_0*100 < 2500)
+  else if (miliVolt_0*1000 < 2000)
   {
     buttonState = LOW;
   }
@@ -72,7 +72,7 @@ void loop() {
         Serial.print("d");
     }  
   }
-  delay(300);
+  delay(200);
   // save the current state as the last state, for next time through the loop
   lastButtonState = buttonState;
   lastButtonState2 = buttonState2;
