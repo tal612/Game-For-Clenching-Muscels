@@ -1,0 +1,3 @@
+Name,Thumbnail Path, Main.py Path
+Dino Run,./banner photos/dino-run.png,./Dino_runGame/
+Doodle Jump,./banner photos/doodle-jump.png,./Pygame-DoodleJump-main/
