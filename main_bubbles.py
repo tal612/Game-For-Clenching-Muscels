@@ -10,7 +10,7 @@ from modules.thread_communication import ThreadSettings, arduino_communication
 from modules.classes import Settings
 ## Constants, yo ##
 
-
+pygame.init()
 s = Settings("bubbles-shooter")
 ANGLE_SPEED = float(s.settings['cursor_speed'])
 t1, t_settings = None, None
@@ -164,7 +164,6 @@ def main(threshold):
     t1 = threading.Thread(target=arduino_communication, args=(pygame.K_LEFT, pygame.K_RIGHT, t_settings, pygame))
     t1.start()
 
-    pygame.init()
     FPSCLOCK = pygame.time.Clock()
     pygame.display.set_caption('Puzzle Bobble')
     MAINFONT = pygame.font.SysFont('Helvetica', TEXTHEIGHT)
@@ -179,9 +178,9 @@ def main(threshold):
 
 
 def runGame():
-    musicList =['bgmusic.ogg', 'Utopian_Theme.ogg', 'Goofy_Theme.ogg']
-    pygame.mixer.music.load(musicList[0])
-    pygame.mixer.music.play()
+    # musicList =['bgmusic.ogg', 'Utopian_Theme.ogg', 'Goofy_Theme.ogg']
+    # pygame.mixer.music.load(musicList[0])
+    # pygame.mixer.music.play()
     track = 0
     gameColorList = copy.deepcopy(COLORLIST)
     direction = None
@@ -284,14 +283,14 @@ def runGame():
 
         score.draw()
 
-        if pygame.mixer.music.get_busy() == False:
-            if track == len(musicList) - 1:
-                track = 0
-            else:
-                track += 1
+        # if pygame.mixer.music.get_busy() == False:
+        #     if track == len(musicList) - 1:
+        #         track = 0
+        #     else:
+        #         track += 1
 
-            pygame.mixer.music.load(musicList[track])
-            pygame.mixer.music.play()
+        #     pygame.mixer.music.load(musicList[track])
+        #     pygame.mixer.music.play()
 
             
         
@@ -446,7 +445,7 @@ def popFloaters(bubbleArray, copyOfBoard, column, row=0):
 
 def stopBubble(bubbleArray, newBubble, launchBubble, score):
     deleteList = []
-    popSound = pygame.mixer.Sound('popcork.ogg')
+    # popSound = pygame.mixer.Sound('popcork.ogg')
     
     for row in range(len(bubbleArray)):
         for column in range(len(bubbleArray[row])):
@@ -542,7 +541,7 @@ def stopBubble(bubbleArray, newBubble, launchBubble, score):
                     
                     if len(deleteList) >= 3:
                         for pos in deleteList:
-                            popSound.play()
+                            # popSound.play()
                             row = pos[0]
                             column = pos[1]
                             bubbleArray[row][column] = BLANK
@@ -639,7 +638,7 @@ def makeDisplay():
     
  
 def terminate():
-    pygame.quit()
+    pygame.display.quit()
     t_settings.run = False
     t1.join()
     # os.chdir("..")

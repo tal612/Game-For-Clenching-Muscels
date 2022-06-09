@@ -59,4 +59,5 @@ def arduino_communication(left_key, right_key, settings, pygame):
                     pygame.event.post(high_left_event)
 
                 last_left_state, last_right_state = left_state, right_state
+    # print("exitted arduino func")
 

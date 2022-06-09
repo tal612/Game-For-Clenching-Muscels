@@ -510,7 +510,7 @@ def gameplay():
                 pygame.display.update()
             clock.tick(FPS)
 
-    quit()
+    
 
 
 def main(threshold):
@@ -526,7 +526,7 @@ def main(threshold):
         gameplay()
     t_settings.run = False
     t1.join()
-
+    pygame.display.quit()
     # os.chdir("..")
     # subprocess.Popen("python " + "menu.py", shell=True)
 

@@ -17,7 +17,6 @@
     along with Pygame-DoodleJump. If not, see <https://www.gnu.org/licenses/>.
 """
 
-
 import pygame, sys, os, subprocess
 import serial, threading
 
@@ -28,7 +27,7 @@ from level import Level
 import settings as config
 from modules.thread_communication import ThreadSettings, arduino_communication
 
-
+pygame.init()
 t_settings = None
 class Game(Singleton):
     """
@@ -91,9 +90,6 @@ class Game(Singleton):
                     # print("reset")
                     self.reset()
                 elif pygame.K_LEFT and self.player.dead:
-                    # print("here")
-                    
-                    # print("ergerge")
                     self.close()
 
             self.player.handle_event(event)
@@ -130,9 +126,10 @@ class Game(Singleton):
     def run(self):
         # ============= MAIN GAME LOOP =============
         while self.__alive:
-            self._event_loop()
+            
             self._update_loop()
             self._render_loop()
+            self._event_loop()
 
 
 
@@ -140,6 +137,7 @@ class Game(Singleton):
 # ============= PROGRAM STARTS HERE =============
 def main(threshold):
     global t_settings
+
     t_settings = ThreadSettings(True, threshold)
     t1 = threading.Thread(target=arduino_communication, args=(pygame.K_LEFT, pygame.K_RIGHT, t_settings, pygame))
     t1.start()
@@ -147,7 +145,8 @@ def main(threshold):
     game.run()
 
     t1.join()
-    pygame.quit()
+    pygame.display.quit()
+
 
     # os.chdir("..")
     # subprocess.Popen("python " + "menu.py", shell=True)

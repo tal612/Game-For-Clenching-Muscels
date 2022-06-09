@@ -14,7 +14,6 @@ global_running = True
 
 class MainMenu:
     def __init__(self) -> None:
-        pygame.init()
         self.thread_settings = ThreadSettings(True, 500)
         self.t1 = threading.Thread(target=arduino_communication, args=(pygame.K_LEFT, pygame.K_RIGHT, self.thread_settings, pygame))
         self.t1.start()
@@ -68,13 +67,15 @@ class MainMenu:
 
         
         self.t1.join()
-        pygame.quit()
+        pygame.display.quit()
 
 def main():
+    pygame.init()
     while global_running:
         main_menu = MainMenu()
         main_menu.run()
-    
+        print('ended')
+    pygame.quit()
 
 if __name__ == '__main__':
     main()
