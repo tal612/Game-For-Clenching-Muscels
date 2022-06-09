@@ -1,0 +1,6 @@
+LICENSE
+setup.py
+Game_For_Clenching_Muscels.egg-info/PKG-INFO
+Game_For_Clenching_Muscels.egg-info/SOURCES.txt
+Game_For_Clenching_Muscels.egg-info/dependency_links.txt
+Game_For_Clenching_Muscels.egg-info/top_level.txt
