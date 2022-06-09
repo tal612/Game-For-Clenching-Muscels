@@ -20,11 +20,11 @@
 import pygame, sys, os, subprocess
 import serial, threading
 
-from singleton import Singleton
-from camera import Camera
-from player import Player
-from level import Level
-import settings as config
+from games.singleton import Singleton
+from games.camera import Camera
+from games.player import Player
+from games.level import Level
+import games.settings as config
 from modules.thread_communication import ThreadSettings, arduino_communication
 
 pygame.init()

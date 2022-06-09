@@ -21,8 +21,8 @@
 from pygame import Rect
 from pygame.sprite import Sprite
 
-from singleton import Singleton
-import settings as config
+from games.singleton import Singleton
+import games.settings as config
 
 
 

@@ -6,7 +6,7 @@ import warnings
 from modules.thread_communication import *
 import sys, time
 
-WIDTH = 600
+WIDTH = 600 
 HIGH = 800
 WHITE = (255,255,255)
 BLACK = (0,0,0)

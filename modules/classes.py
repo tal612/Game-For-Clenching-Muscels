@@ -7,15 +7,15 @@ HIGH = 800
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 # Dino Run,main_dino_run.main,./banner photos/dino-run.png
-# Doodle Jump,main_doodle_jump.main,./banner photos/doodle-jump.png
+# Doodle Jump,main_doodle_jump.main,./banner photos/doodle-jump.png 
+import games.main_bubbles, games.main_doodle_jump , games.main_dino_run
 
 class Game:
     def __init__(self, name, main_func, thumbnail) -> None:
-        import main_bubbles, main_doodle_jump , main_dino_run
         self.name = name
         self.thumbnail = pygame.image.load(thumbnail)
         self.thumbnail.convert()
-        self.main_func = eval(main_func)
+        self.main_func = eval('games.' + main_func)
 
 
     def launch(self, threshold):
@@ -90,7 +90,6 @@ class Settings:
 
     def read_set_file(self,game):
         path = os.path.join( os.getcwd(), '.\settings', game + '_settings.csv' )
-        print(path)
         with open(path, 'r') as settings_file:
             reader = csv.DictReader(settings_file)
             for row in reader:

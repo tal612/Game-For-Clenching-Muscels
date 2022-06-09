@@ -7,7 +7,7 @@ import math, pygame, sys, os, copy, time, random, subprocess, threading
 import pygame.gfxdraw
 from pygame.locals import *
 from modules.thread_communication import ThreadSettings, arduino_communication
-from modules.classes import Settings
+from settings.settings import Settings
 ## Constants, yo ##
 
 pygame.init()
@@ -109,7 +109,7 @@ class Arrow(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
 
         self.angle = 90
-        arrowImage = pygame.image.load('Arrow.png')
+        arrowImage = pygame.image.load('.\games\Arrow.png')
         arrowImage.convert_alpha()
         arrowRect = arrowImage.get_rect()
         self.image = arrowImage

@@ -24,11 +24,11 @@ from pygame.locals import KEYDOWN,KEYUP,K_LEFT,K_RIGHT
 from pygame.sprite import collide_rect
 from pygame.event import Event
 
-from singleton import Singleton
-from sprite import Sprite
-from level import Level
-import settings as config
-from modules.classes import Settings
+from games.singleton import Singleton
+from games.sprite import Sprite
+from games.level import Level
+import games.settings as config
+from settings.settings import Settings
 
 s = Settings('doodle-jump')
 SPEED = float(s.settings["speed"])

@@ -22,9 +22,9 @@ from random import randint
 from pygame import Surface
 import asyncio
 
-from singleton import Singleton
-from sprite import Sprite
-import settings as config
+from games.singleton import Singleton
+from games.sprite import Sprite
+import games.settings as config
 
 
 

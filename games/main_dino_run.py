@@ -11,7 +11,7 @@ import threading
 import serial
 import time
 import subprocess
-
+from settings.settings import Settings
 
 
 pygame.init()
@@ -30,9 +30,9 @@ screen = None
 clock = pygame.time.Clock()
 
 
-jump_sound = pygame.mixer.Sound('sprites/jump.wav')
-die_sound = pygame.mixer.Sound('sprites/die.wav')
-checkPoint_sound = pygame.mixer.Sound('sprites/checkPoint.wav')
+jump_sound = pygame.mixer.Sound('./games/sprites/jump.wav')
+die_sound = pygame.mixer.Sound('./games/sprites/die.wav')
+checkPoint_sound = pygame.mixer.Sound('./games/sprites/checkPoint.wav')
 
 def load_image(
     name,
@@ -41,7 +41,7 @@ def load_image(
     colorkey=None,
     ):
 
-    fullname = os.path.join('sprites', name)
+    fullname = os.path.join('./games/sprites', name)
     image = pygame.image.load(fullname)
     image = image.convert()
     if colorkey is not None:
@@ -62,7 +62,7 @@ def load_sprite_sheet(
         scaley = -1,
         colorkey = None,
         ):
-    fullname = os.path.join('sprites',sheetname)
+    fullname = os.path.join('./games/sprites',sheetname)
     sheet = pygame.image.load(fullname)
     sheet = sheet.convert()
 

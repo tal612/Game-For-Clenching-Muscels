@@ -19,7 +19,7 @@
 
 
 from pygame import Surface,Rect
-from camera import Camera
+from games.camera import Camera
 
 
 
