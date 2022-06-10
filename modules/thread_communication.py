@@ -5,11 +5,13 @@ import time
 import threading
 
 class ThreadSettings:
-    def __init__(self, run: bool, threshold : int) -> None:
+    def __init__(self, run = True, threshold = 500) -> None:
         self.run = run
         self.threshold = threshold
+        self.left_voltage = 0
+        self.right_voltage = 0
 
-def arduino_communication(left_key, right_key, settings, pygame):
+def arduino_communication(left_key, right_key, settings : ThreadSettings, pygame, publish_volt = False):
     arduino_ports = [ p.device for p in serial.tools.list_ports.comports() if 'Arduino' in p.description]
     if not arduino_ports:
         raise IOError("No Arduino found")
@@ -59,5 +61,8 @@ def arduino_communication(left_key, right_key, settings, pygame):
                     pygame.event.post(high_left_event)
 
                 last_left_state, last_right_state = left_state, right_state
+                if publish_volt:
+                    settings.left_voltage, settings.right_voltage = left_voltage, right_voltage
+
     # print("exitted arduino func")
 
