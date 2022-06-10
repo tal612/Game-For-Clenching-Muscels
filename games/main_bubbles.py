@@ -681,8 +681,6 @@ def endScreen(score, winorlose):
                 elif event.key == K_RIGHT:
                     return 0
 
-def test():
-    print("succeed")
         
 if __name__ == '__main__':
     main()

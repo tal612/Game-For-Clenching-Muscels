@@ -61,7 +61,7 @@ class Window:
         self.screen.fill(WHITE)
         pygame.display.flip()
 
-        font = pygame.font.Font('freesansbold.ttf', 32)
+        font = pygame.font.Font('./modules/freesansbold.ttf', 32)
         text = font.render(self.current_game.name, True, BLACK)
 
         textRect = text.get_rect()
