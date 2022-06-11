@@ -8,7 +8,7 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 # Dino Run,main_dino_run.main,./banner photos/dino-run.png
 # Doodle Jump,main_doodle_jump.main,./banner photos/doodle-jump.png 
-import games.main_bubbles, games.main_doodle_jump , games.main_dino_run
+import games.main_bubbles, games.main_doodle_jump , games.main_dino_run, games.settings_app
 
 class Game:
     def __init__(self, name, main_func, thumbnail) -> None:

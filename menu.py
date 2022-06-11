@@ -57,7 +57,9 @@ class MainMenu:
                                 self.running = False
                                 self.thread_settings.run = False
                                 self.t1.join()
-                                self.games[self.game_index].main_func(self.thread_settings.threshold)
+                                returned_value = self.games[self.game_index].main_func(self.thread_settings.threshold)
+                                if self.games[self.game_index].name == 'Settings':
+                                    self.thread_settings.threshold = returned_value
                         else:
                             if self.game_index >= 0:
                                 self.window.draw_ingame_menu()

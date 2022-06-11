@@ -124,8 +124,11 @@ class SettingsApp:
         pygame.display.quit()
         self.thread_settings.run = False
         self.arduino_thread.join()
-        return
+        return self.thread_settings.threshold
+
+def main(threshold):
+    app = SettingsApp()
+    return copy(app.loop())
 
 if __name__ == '__main__':
-    app = SettingsApp()
-    app.loop()
+    main()
