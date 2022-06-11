@@ -58,7 +58,7 @@ class MainMenu:
                                 self.thread_settings.run = False
                                 self.t1.join()
                                 returned_value = self.games[self.game_index].main_func(self.thread_settings.threshold)
-                                if self.games[self.game_index].name == 'Settings':
+                                if self.games[self.game_index].name == 'Settings' and returned_value:
                                     self.thread_settings.threshold = returned_value
                         else:
                             if self.game_index >= 0:
