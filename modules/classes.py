@@ -82,18 +82,18 @@ def load_games(csv_file):
             games.append(Game(row[0], row[1], row[2]))
     return games
 
-class Settings:
-    def __init__(self, game) -> None:
-        self.settings = {}
-        self.read_set_file(game)
+# class Settings:
+#     def __init__(self, game) -> None:
+#         self.settings = {}
+#         self.read_set_file(game)
 
 
-    def read_set_file(self,game):
-        path = os.path.join( os.getcwd(), '.\settings', game + '_settings.csv' )
-        with open(path, 'r') as settings_file:
-            reader = csv.DictReader(settings_file)
-            for row in reader:
-                self.settings[row["setting"]] = row["value"]
+#     def read_set_file(self,game):
+#         path = os.path.join( os.getcwd(), '.\settings', game + '_settings.csv' )
+#         with open(path, 'r') as settings_file:
+#             reader = csv.DictReader(settings_file)
+#             for row in reader:
+#                 self.settings[row["setting"]] = row["value"]
                 
 if __name__ == "__main__":
     s = Settings("bubbles-shooter")
