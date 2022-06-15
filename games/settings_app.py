@@ -49,7 +49,7 @@ class SettingsApp:
                     elif event.key == pygame.K_LEFT:
                         if ask_set_threshold:
                             self.thread_settings.threshold = old_width
-                            print("Threshold set to", new_width)
+                            # print("Threshold set to", new_width)
                             return
 
             if not ask_set_threshold:

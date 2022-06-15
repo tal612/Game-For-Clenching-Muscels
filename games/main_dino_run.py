@@ -441,7 +441,7 @@ def gameplay():
 
             playerDino.update()
             cacti.update()
-            pteras.update()
+            # pteras.update()
             clouds.update()
             new_ground.update()
             scb.update(playerDino.score)
@@ -456,7 +456,7 @@ def gameplay():
                     highsc.draw()
                     screen.blit(HI_image,HI_rect)
                 cacti.draw(screen)
-                pteras.draw(screen)
+                # pteras.draw(screen)
                 playerDino.draw()
 
                 pygame.display.update()

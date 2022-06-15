@@ -19,9 +19,9 @@ def arduino_communication(left_key, right_key, settings : ThreadSettings, pygame
         warnings.warn('Multiple Arduinos found - using the first')
     chosen_port = arduino_ports[0]
     
-    serial_ = serial.Serial(chosen_port, baudrate=9600, timeout=1)
+    serial_ = serial.Serial(chosen_port, baudrate=19200, timeout=1)
     print("Connected to: ", chosen_port)
-    
+
     last_left_state, last_right_state = 0, 0
     left_voltage, right_voltage = 0, 0
     left_state, right_state = 0, 0
@@ -40,7 +40,7 @@ def arduino_communication(left_key, right_key, settings : ThreadSettings, pygame
                     left_voltage, right_voltage = tuple([float(voltage) for voltage in splitted_msg])
                 except ValueError:
                     print("ERORR. msg is:", msg)
-                # print(threading.get_ident(), "GOT:",left_voltage, right_voltage)
+                print(threading.get_ident(), "GOT:",left_voltage, right_voltage, 'Threshold =',settings.threshold)
                 left_state = 1 if left_voltage > settings.threshold else 0
                 right_state = 1 if right_voltage > settings.threshold else 0
 

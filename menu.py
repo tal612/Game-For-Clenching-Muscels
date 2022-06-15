@@ -11,10 +11,10 @@ HIGH = 800
 WHITE = (255,255,255)
 BLACK = (0,0,0)
 global_running = True
-
+THRESHOLD = 300
 class MainMenu:
     def __init__(self) -> None:
-        self.thread_settings = ThreadSettings(True, 500)
+        self.thread_settings = ThreadSettings(True, THRESHOLD)
         self.t1 = threading.Thread(target=arduino_communication, args=(pygame.K_LEFT, pygame.K_RIGHT, self.thread_settings, pygame))
         self.t1.start()
 
@@ -29,7 +29,7 @@ class MainMenu:
         self.ingame_menu = False
     
     def run(self):
-        global global_running
+        global global_running, THRESHOLD
                 
         while self.running:
             pygame.display.flip()
@@ -59,7 +59,8 @@ class MainMenu:
                                 self.t1.join()
                                 returned_value = self.games[self.game_index].main_func(self.thread_settings.threshold)
                                 if self.games[self.game_index].name == 'Settings' and returned_value:
-                                    self.thread_settings.threshold = returned_value
+                                    THRESHOLD = 0.8*returned_value
+                                    print('set to', 0.8*returned_value)
                         else:
                             if self.game_index >= 0:
                                 self.window.draw_ingame_menu()
